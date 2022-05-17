@@ -53,6 +53,7 @@ public function images()
     $randomNumber = (rand(0,($totalNeas-1)));
     $randomNeaImage = HomeController::$image[$randomNumber];
     $randomQuote = HomeController::$quote[$randomNumber];
-    return view('home.images')->with("randomNeaImage", $randomNeaImage)->with( "randomQuote", $randomQuote)->with("serverIp", gethostbyname(gethostname()));
+    #return view('home.images')->with("randomNeaImage", $randomNeaImage)->with( "randomQuote", $randomQuote)->with("serverIp", gethostbyname(gethostname()));
+    return response("echo \"<img src=\"".$randomNeaImage."\" alt=\"\">\"\nserver_ip=>".gethostbyname(gethostname()));
 }
 }
